@@ -1,0 +1,24 @@
+.theme-toggle {
+  position: fixed;  /* Make it fixed on the screen */
+  bottom: 20px;    /* Position it at the bottom */
+  left: 20px;      /* Align it to the left */
+  background: var(--toggle-bg, #f1f1f1);
+  color: var(--toggle-color, #333);
+  border: none;
+  padding: 12px;
+  border-radius: 50%;  /* Circular shape */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+  z-index: 1000;  /* Ensure it's above other elements */
+}
+
+.theme-toggle:hover {
+  background: var(--toggle-bg-hover, #ddd);
+}
+
+.dark-mode .theme-toggle {
+  --toggle-bg: #222;
+  --toggle-color: #fff;
+  --toggle-bg-hover: #333;
+}
