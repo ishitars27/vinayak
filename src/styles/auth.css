@@ -1,0 +1,43 @@
+
+.auth-container {
+    text-align: center;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #222;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .auth-container h2 {
+    margin-bottom: 15px;
+  }
+  
+  .auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid gold;
+    background: black;
+    color: white;
+  }
+  
+  .auth-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: gold;
+    color: black;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .auth-container button:hover {
+    background-color: darkgoldenrod;
+  }
+  
+  .auth-container p {
+    margin-top: 15px;
+    color: gold;
+    cursor: pointer;
+  }
+  
