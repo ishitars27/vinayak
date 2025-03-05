@@ -11,7 +11,7 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import ThemeProvider from "./context/ThemeProvider.jsx";
 import ThemeToggle from "./components/themeToggle"; // lowercase "t"
-import ChatBotWidget from "./components/ChatBotWidget.jsx";
+//import ChatBotWidget from "./components/ChatBotWidget.jsx";
 import "./styles/global.css";
 import "./styles/navbar.css";
 import "./styles/footer.css";
@@ -39,7 +39,7 @@ function App() {
       </Routes>
       <Footer />
       <ThemeToggle />
-      <ChatBotWidget/>
+     
     </ThemeProvider>
   );
 }
