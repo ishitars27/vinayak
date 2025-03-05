@@ -5,7 +5,7 @@ import Products from "./pages/Products.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
 import Cart from "./pages/Cart.jsx";
 import Checkout from "./pages/Checkout.jsx";
-import OrderTracking from "./pages/OrderTracking.jsx";
+import OrderTracking from "./pages/ordertracking.jsx";
 import Auth from "./pages/Auth.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
