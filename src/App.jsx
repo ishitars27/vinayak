@@ -10,7 +10,8 @@ import Auth from "./pages/Auth.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import ThemeProvider from "./context/ThemeProvider.jsx";
-import ThemeToggle from "./components/ThemeToggle.jsx";
+import ThemeToggle from "./components/themeToggle"; // lowercase "t"
+
 import ChatBotWidget from "./components/ChatBotWidget.jsx";
 import "./styles/global.css";
 import "./styles/navbar.css";
