@@ -1,7 +1,9 @@
 // ProductDetail.jsx
 import React from "react";
 import { useParams } from "react-router-dom";
-import "../styles/productDetail.css";
+import "../styles/ProductDetail.css";  // Correct (matches filename)
+
+
 
 const ProductDetail = () => {
   const { id } = useParams();
