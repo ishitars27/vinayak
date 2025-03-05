@@ -1,5 +1,4 @@
 // Navbar.jsx
-import ThemeToggle from "./ThemeToggle";
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
