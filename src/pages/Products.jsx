@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { database } from "../firebaseConfig";
 import { ref, get } from "firebase/database";
 import "../styles/products.css";
+import ARViewer from "../components/ARViewer"; // Import AR Viewer
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState({});
+  const [arProduct, setArProduct] = useState(null); // Track product for AR
 
   useEffect(() => {
     const productsRef = ref(database, "/productdetails/-OKa-_SlH8WU3RJZ4TSX");
@@ -14,8 +16,7 @@ const Products = () => {
     get(productsRef)
       .then((snapshot) => {
         if (snapshot.exists()) {
-          const productList = Object.values(snapshot.val());
-          setProducts(productList);
+          setProducts(Object.values(snapshot.val()));
         } else {
           console.log("No data available in Firebase.");
         }
@@ -26,31 +27,25 @@ const Products = () => {
         setLoading(false);
       });
 
-    // ✅ Load cart from localStorage
     const storedCart = JSON.parse(localStorage.getItem("cart")) || {};
     setCart(storedCart);
   }, []);
 
-  // ✅ Save cart to localStorage whenever it updates
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // ✅ Add product to cart
   const addToCart = (product) => {
     setCart((prevCart) => {
       const newCart = { ...prevCart };
-      if (newCart[product.id]) {
-        newCart[product.id].quantity += 1;
-      } else {
-        newCart[product.id] = { ...product, quantity: 1 };
-      }
-      localStorage.setItem("cart", JSON.stringify(newCart)); // ✅ Save instantly
+      newCart[product.id] = prevCart[product.id]
+        ? { ...prevCart[product.id], quantity: prevCart[product.id].quantity + 1 }
+        : { ...product, quantity: 1 };
+      localStorage.setItem("cart", JSON.stringify(newCart));
       return newCart;
     });
   };
 
-  // ✅ Increase quantity
   const increaseQuantity = (id) => {
     setCart((prevCart) => {
       const newCart = { ...prevCart, [id]: { ...prevCart[id], quantity: prevCart[id].quantity + 1 } };
@@ -59,19 +54,16 @@ const Products = () => {
     });
   };
 
-  // ✅ Decrease quantity
   const decreaseQuantity = (id) => {
     setCart((prevCart) => {
+      const newCart = { ...prevCart };
       if (prevCart[id].quantity > 1) {
-        const newCart = { ...prevCart, [id]: { ...prevCart[id], quantity: prevCart[id].quantity - 1 } };
-        localStorage.setItem("cart", JSON.stringify(newCart));
-        return newCart;
+        newCart[id].quantity -= 1;
       } else {
-        const updatedCart = { ...prevCart };
-        delete updatedCart[id];
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
-        return updatedCart;
+        delete newCart[id];
       }
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      return newCart;
     });
   };
 
@@ -100,10 +92,18 @@ const Products = () => {
                   Add to Cart
                 </button>
               )}
+
+              {/* AR Button */}
+              <button className="ar-button" onClick={() => setArProduct(product)}>
+                View in AR
+              </button>
             </div>
           ))}
         </div>
       )}
+
+      {/* Show AR Viewer if product is selected */}
+      {arProduct && <ARViewer product={arProduct} onClose={() => setArProduct(null)} />}
     </div>
   );
 };
