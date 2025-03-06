@@ -39,4 +39,8 @@
   .cart-container button:hover {
     background-color: darkgoldenrod;
   }
-  
+  .empty-cart i{
+position: relative;
+left: 120px;
+bottom: 55px;
+  }

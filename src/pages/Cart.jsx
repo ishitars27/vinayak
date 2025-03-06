@@ -40,7 +40,10 @@ const Cart = () => {
       {cartItems.length === 0 ? (
         <div className="empty-cart">
           <FaShoppingCart size={50} />
-          <p>Your cart is empty.</p>
+        
+          <p>Your cart is empty.  
+          <i class="fa-solid fa-face-sad-tear fa-3x" ></i>
+          </p>
         </div>
       ) : (
         <ul>
