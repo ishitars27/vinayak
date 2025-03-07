@@ -3,7 +3,7 @@ import { database } from "../firebaseConfig";
 import { ref, get } from "firebase/database";
 import "../styles/products.css";
 import ARViewer from "../components/ARViewer"; // Import AR Viewer
-
+import "../styles/arviewer.css";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
