@@ -1,5 +1,5 @@
 // brands.jsx
-import '../Styles/brands.css';
+import '../styles/brands.css';
 
 const Brands = () => {
     return (
