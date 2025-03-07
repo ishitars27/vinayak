@@ -4,6 +4,7 @@ import { ref, get } from "firebase/database";
 import "../styles/products.css";
 import ARViewer from "../components/ARViewer"; // Import AR Viewer
 import "../styles/arviewer.css";
+import { useLocation } from "react-router-dom";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -93,10 +94,7 @@ const Products = () => {
                 </button>
               )}
 
-              {/* AR Button */}
-              <button className="ar-button" onClick={() => setArProduct(product)}>
-                View in AR
-              </button>
+
             </div>
           ))}
         </div>
