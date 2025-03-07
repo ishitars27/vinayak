@@ -1,5 +1,5 @@
 
-.footer {
+.footer {width: 100%;
   background: #222;
   color: #fff;
   padding: 20px 0;
@@ -12,22 +12,23 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 10px;
+
 }
 
 .footer-logo h2 {
   color: #f4b400;
 }
-
+.footer-logo h2:hover{  
+    transform: scale(1.05);
+  border-radius: 20px;}
 .footer-links a {
   color: #f4b400;
   text-decoration: none;
   margin: 0 10px;
   transition: 0.3s;
 }
-
-.footer-links a:hover {
-  color: #ffcc00;
-}
+.footer-links:hover{ 
+    transform: scale(1.05);}
 
 .footer-socials a {
   margin: 0 8px;
@@ -37,8 +38,10 @@
 }
 
 .footer-socials a:hover {
-  color: #ffcc00;
-}
+    transform: scale(1.05);
+    border-radius: 100%;
+
+color: inherit;  }
 
 .footer-bottom {
   margin-top: 15px;
