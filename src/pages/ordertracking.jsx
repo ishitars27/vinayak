@@ -28,9 +28,10 @@ const OrderTracking = () => {
                     required
                 />
                 <button type="submit">Track Order</button>
+                <h1 id="hhrr">Cruising 350</h1>
             </form>
             {orderStatus && <p className="order-status">Status: {orderStatus}</p>}
-            <Footer />
+
         </div>
     );
 };
