@@ -5,6 +5,7 @@ import "../styles/products.css";
 import ARViewer from "../components/ARViewer"; // Import AR Viewer
 import "../styles/arviewer.css";
 import { useLocation } from "react-router-dom";
+import Footer from "../components/Footer";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -102,6 +103,7 @@ const Products = () => {
 
       {/* Show AR Viewer if product is selected */}
       {arProduct && <ARViewer product={arProduct} onClose={() => setArProduct(null)} />}
+        <Footer/>
     </div>
   );
 };
