@@ -31,7 +31,7 @@ background: linear-gradient(0deg, rgba(0,0,0,0.8099614845938375) 17%, rgba(255,2
 
 /* Individual Brand Card */
 .brand-card {
-    background-color: white; /* Default background */
+    background-color: white;
     padding: 20px;
     text-align: center;
     transition: all 0.3s ease-in-out;
