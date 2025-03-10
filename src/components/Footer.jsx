@@ -1,7 +1,7 @@
-// Footer.jsx
 import React from "react";
 import "../styles/footer.css";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom"; // Import Link
 
 const Footer = () => {
   return (
@@ -12,16 +12,24 @@ const Footer = () => {
           <p>Your one-stop destination for premium bike accessories.</p>
         </div>
         <div className="footer-links">
-          <a href="/about">About Us</a>
-          <a href="/contact">Contact</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms & Conditions</a>
+          <Link to="/about">About Us</Link> {/* Updated Link */}
+          <Link to="/contactus">Contact</Link>
+          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/terms">Terms & Conditions</Link>
         </div>
         <div className="footer-socials">
-          <a href="https://www.facebook.com"><FaFacebook /></a>
-          <a href="https://www.instagram.com/cruising350/"><FaInstagram /></a>
-          <a href="https://www.twitter.com"><FaTwitter /></a>
-          <a href="https://www.youtube.com"><FaYoutube /></a>
+          <a href="https://www.facebook.com">
+            <FaFacebook />
+          </a>
+          <a href="https://www.instagram.com/cruising350/">
+            <FaInstagram />
+          </a>
+          <a href="https://www.twitter.com">
+            <FaTwitter />
+          </a>
+          <a href="https://www.youtube.com">
+            <FaYoutube />
+          </a>
         </div>
       </div>
       <div className="footer-bottom">
@@ -30,4 +38,5 @@ const Footer = () => {
     </footer>
   );
 };
-export default Footer
+
+export default Footer;
