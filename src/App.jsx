@@ -13,8 +13,7 @@ import ThemeProvider from "./context/ThemeProvider.jsx";
 import ThemeToggle from "./components/themeToggle";
 import ARMode from "./pages/ARMode.jsx";
 import Brands from "./components/brands.jsx";
-import Aboutus from "./pages/aboutus.jsx";
-
+import Aboutus from "./pages/Aboutus.jsx";
 import "./styles/global.css";
 import "./styles/navbar.css";
 import "./styles/footer.css";
