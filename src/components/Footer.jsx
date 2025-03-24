@@ -14,20 +14,20 @@ const Footer = () => {
         <div className="footer-links">
           <Link to="/about">About Us</Link> {/* Updated Link */}
           <Link to="/contactus">Contact</Link>
-          <Link to="/privacy">Privacy Policy</Link>
-          <Link to="/terms">Terms & Conditions</Link>
+          <Link to="/privacypolicy">Privacy Policy</Link>
+          <Link to="/terms&conditions">Terms & Conditions</Link>
         </div>
         <div className="footer-socials">
-          <a href="https://www.facebook.com">
+          <a href="https://www.facebook.com" target="blank">
             <FaFacebook />
           </a>
-          <a href="https://www.instagram.com/cruising350/">
+          <a href="https://www.instagram.com/cruising350/" target="blank">
             <FaInstagram />
           </a>
-          <a href="https://www.twitter.com">
+          <a href="https://www.twitter.com" target="blank">
             <FaTwitter />
           </a>
-          <a href="https://www.youtube.com">
+          <a href="https://www.youtube.com" target="blank">
             <FaYoutube />
           </a>
         </div>

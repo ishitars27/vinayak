@@ -25,6 +25,8 @@ import "./styles/orderTracking.css";
 import "./styles/auth.css";
 import "./styles/ProductDetail.css";
 import ContactUs from "./pages/contactus.jsx";
+import PrivacyPolicy from "./pages/privacypolicy.jsx";
+import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 
 function App() {
   return (
@@ -43,11 +45,13 @@ function App() {
           <Route path="/about" element={<Aboutus />} /> {/* Added About Us Route */}
           <Route path="/brands" element={<Brands />} /> {/* Added Brands Route */}
           <Route path="/contactus" element={<ContactUs/>}/>
+          <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
+          <Route path="/terms&conditions" element={<TermsAndConditions/>}/>
         </Routes>
 
         <ThemeToggle />
          {/* Footer should be placed after Routes */}
-
+<Footer/>
     </ThemeProvider>
   );
 }

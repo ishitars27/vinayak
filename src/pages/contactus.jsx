@@ -37,7 +37,7 @@ const ContactUs = () => {
         <p><strong>Do you ship internationally?</strong> – Currently, we ship only within India.</p>
       </div>
 
-      <Footer />
+
     </div>
   );
 };

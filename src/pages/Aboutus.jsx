@@ -45,7 +45,7 @@ const Aboutus = () => {
           Our Instagram <i class="fa-brands fa-instagram"></i>
         </a>
       </div>
-<Footer/>
+
 
     </div>
   );

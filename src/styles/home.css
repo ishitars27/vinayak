@@ -37,8 +37,8 @@
 /* Overlay for Text on Slideshow */
 .hero-overlay {
   position: relative;
- left: 320px;
- bottom: 120px;
+ left: 685px;
+ bottom: 50px;
   transform: translate(-50%, -50%);
   text-align: center;
  
