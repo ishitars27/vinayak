@@ -62,7 +62,8 @@ const PrivacyPolicy = () => {
         <br />
         📧 Email: <a href="mailto:vinayaksinghforyou@gmail.com.com">support@cruising350.com</a>
         <br />
-        📞 Phone: +91 8287764234
+        📞 Phone:
+        <a href="tel:+918287764234">Call us</a>
       </p>
 
     

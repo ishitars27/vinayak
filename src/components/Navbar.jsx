@@ -24,13 +24,13 @@ const Navbar = () => {
         <Link to="/">Cruising 350</Link>
       </div>
       <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li>
+        <li><Link to="/">Home<i class="fa-solid fa-house"></i></Link></li>
         <li
           className="products-dropdown"
           onMouseEnter={() => setIsDropdownOpen(true)}
           onMouseLeave={() => setIsDropdownOpen(false)}
         >
-          <Link to="/products">Products</Link>
+          <Link to="/products">Products<i class="fa-solid fa-cart-shopping"></i></Link>
           {isDropdownOpen && (
             <ul className="dropdown-menu">
               <li onClick={() => handleCategoryClick("Helmets")}>Helmets           <i class="fa-solid fa-helmet-un"></i></li>
@@ -40,7 +40,7 @@ const Navbar = () => {
             </ul>
           )}
         </li>
-        <li><Link to="/ordertracking">Track Order</Link></li>
+        <li><Link to="/ordertracking">Track Order<     i class="fa-solid fa-location-pin"></i></Link></li>
         <li><Link to="/cart"><FaShoppingCart /></Link></li>
         <li><Link to="/auth"><FaUser /></Link></li>
       </ul>
