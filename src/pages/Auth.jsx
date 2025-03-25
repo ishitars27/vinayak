@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import "../styles/auth.css";
+import avatar from "../assets/avatar.png"; // Ensure the avatar image is in the correct path
 
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
   const [error, setError] = useState("");
-  const [loggedin, setLoggedin] = useState(false);
-  const [accountCreation, setAccountCreation] = useState(false); // ✅ Fixed state name
+  const [submitted, setSubmitted] = useState(false);
 
   const handleAuth = async (e) => {
     e.preventDefault();
@@ -17,54 +17,56 @@ const Auth = () => {
 
     try {
       if (isLogin) {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log("User Logged In:", userCredential.user);
-        setLoggedin(true); // ✅ Set logged-in state
+        await signInWithEmailAndPassword(auth, email, password);
       } else {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        console.log("User Signed Up:", userCredential.user);
-        setAccountCreation(true); // ✅ Set account creation state
+        await createUserWithEmailAndPassword(auth, email, password);
       }
+      setSubmitted(true);
     } catch (err) {
-      console.error("Firebase Auth Error:", err.message);
       setError(err.message);
     }
   };
 
   return (
-    <div className="auth-container">
-      {/* ✅ First check if an account was created */}
-      {accountCreation ? (
-        <h1>Account Created Successfully</h1>
-      ) : loggedin ? ( // ✅ Then check if the user is logged in
-       <div>
-        <h1>Logged in successfully</h1>
-       </div>
+    <div className="login">
+      {submitted ? (
+        <h2 className="success-message">You have successfully logged in</h2>
       ) : (
-        <div>
+        <>
+          <div className="avatar">
+            <img src={avatar} alt="User Avatar" />
+          </div>
           <h2>{isLogin ? "Login" : "Sign Up"}</h2>
-          <form onSubmit={handleAuth}>
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button type="submit">{isLogin ? "Login" : "Sign Up"}</button>
+          {error && <p className="error-message">{error}</p>}
+          <h3>Welcome back</h3>
+
+          <form className="login-form" onSubmit={handleAuth}>
+            <div className="textbox">
+              <label htmlFor="email">Email:</label>
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <span className="material-symbols-outlined">email</span>
+            </div>
+            <div className="textbox">
+              <label htmlFor="password">Password:</label>
+              <input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <span className="material-symbols-outlined">lock</span>
+            </div>
+            <button type="submit">{isLogin ? "LOGIN" : "SIGN UP"}</button>
+            <a href="/forgot-password">Forgot your credentials?</a>
           </form>
-          {error && <p className="auth-error">{error}</p>}
-          <p onClick={() => setIsLogin(!isLogin)} className="toggle-auth">
-            {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login"}
-          </p>
-        </div>
+        </>
       )}
     </div>
   );

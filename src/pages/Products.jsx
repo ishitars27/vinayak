@@ -33,9 +33,9 @@ const Products = () => {
 
   return (
     <div className="products-container">
-      <h2>Our Products</h2>
+      <h2 id="our-products">Our Products</h2>
       {loading ? (
-        <p>Loading products...</p>
+        <p>Loading products... <i class="fa-solid fa-spinner"></i></p>
       ) : (
         <div className="product-grid">
           {products.map((product) => (
@@ -43,9 +43,9 @@ const Products = () => {
               {/* ✅ Clickable Product Card */}
               <Link to={`/products/${product.id}`} className="product-link">
                 <img src={product.image} alt={product.name} />
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <p>Price: ₹{product.price}</p>
+                <h3 id="card-name">{product.name}</h3>
+                <p id="card-para">{product.description}</p>
+                <p id="cardprice">Price: ₹{product.price}</p>
               </Link>
             </div>
           ))}

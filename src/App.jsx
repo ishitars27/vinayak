@@ -14,6 +14,7 @@ import ThemeToggle from "./components/themeToggle";
 import ARMode from "./pages/ARMode.jsx";
 import Brands from "./components/brands.jsx";
 import Aboutus from "./pages/Aboutus.jsx";
+import Forgot from "./pages/forgot.jsx";
 import "./styles/global.css";
 import "./styles/navbar.css";
 import "./styles/footer.css";
@@ -47,6 +48,7 @@ function App() {
           <Route path="/contactus" element={<ContactUs/>}/>
           <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
           <Route path="/terms&conditions" element={<TermsAndConditions/>}/>
+          <Route path="/forgot-password" element={<Forgot />} />
         </Routes>
 
         <ThemeToggle />

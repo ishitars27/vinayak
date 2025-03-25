@@ -38,7 +38,11 @@
 .hero-overlay {
   position: relative;
  left: 685px;
- bottom: 50px;
+
+; font-family: "Oswald", sans-serif;
+font-optical-sizing: auto;
+font-weight :600px;;
+font-style: normal;
   transform: translate(-50%, -50%);
   text-align: center;
  

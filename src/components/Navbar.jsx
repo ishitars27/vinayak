@@ -1,49 +1,48 @@
-// Navbar.jsx
-import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "../styles/navbar.css";
+import { Link } from "react-router-dom";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 
 const Navbar = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleDropdownToggle = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const handleCategoryClick = (category) => {
-    navigate(`/products`);
-    setIsDropdownOpen(false); // Close the dropdown after clicking
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    document.body.classList.toggle("open");
   };
 
   return (
-    <nav className="navbar">
+<nav className="navbar">
+
+      {/* Logo */}
       <div className="navbar-logo">
         <Link to="/">Cruising 350</Link>
       </div>
-      <ul className="navbar-links">
-        <li><Link to="/">Home<i class="fa-solid fa-house"></i></Link></li>
-        <li
-          className="products-dropdown"
-          onMouseEnter={() => setIsDropdownOpen(true)}
-          onMouseLeave={() => setIsDropdownOpen(false)}
-        >
-          <Link to="/products">Products<i class="fa-solid fa-cart-shopping"></i></Link>
-          {isDropdownOpen && (
-            <ul className="dropdown-menu">
-              <li onClick={() => handleCategoryClick("Helmets")}>Helmets           <i class="fa-solid fa-helmet-un"></i></li>
-              <li onClick={() => handleCategoryClick("Riding Gears")}>Riding Gears       <i class="fa-solid fa-person-biking"></i></li>
-              <li onClick={() => handleCategoryClick("Bike Accessories")}>Bike Accessories            <i class="fa-solid fa-motorcycle"></i></li>
-              <li onClick={() => handleCategoryClick("Visors")}>Visors              <i class="fa-solid fa-helmet-safety"></i></li>
-            </ul>
-          )}
-        </li>
-        <li><Link to="/ordertracking">Track Order<     i class="fa-solid fa-location-pin"></i></Link></li>
-        <li><Link to="/cart"><FaShoppingCart /></Link></li>
-        <li><Link to="/auth"><FaUser /></Link></li>
-      </ul>
+
+      {/* Burger menu for mobile */}
+      <button onClick={toggleMenu} className="burger"></button>
+
+      {/* Navbar links */}
+      <div className={`dropdowns ${menuOpen ? "open" : ""}`}>
+        <Link to="/" className="button">Home</Link>
+
+        {/* Dropdown Menu for Products */}
+        <div className="dropdown">
+          <Link to="/products" className="button no-border">
+            Products <i className="arrow down"></i>
+          </Link>
+          <div className="dropdown-menu">
+            <Link to="/products">Helmets</Link>
+            <Link to="/products">Riding Gears</Link>
+            <Link to="/products">Bike Accessories</Link>
+            <Link to="/products">Visors</Link>
+          </div>
+        </div>
+
+        <Link to="/ordertracking" className="button">Track Order</Link>
+        <Link to="/cart" className="button"><FaShoppingCart /></Link>
+        <Link to="/auth" className="button"><FaUser /></Link>
+      </div>
     </nav>
   );
 };

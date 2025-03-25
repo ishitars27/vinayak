@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true,
-    port: 5174, // ✅ Ensure this matches your Vite server port
+    port: 3000, // ✅ Ensure this matches your Vite server port
     strictPort: true,
     watch: {
       usePolling: true,

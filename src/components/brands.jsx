@@ -7,6 +7,9 @@ const Brands = () => {
             <h1>Brands with us</h1>
             <div className='brandscontainer' id='brandscontainer' style={{
                 backgroundImage: `url("/ridinggears.png")`,
+                width: "100vw", // Ensures full width
+                height: "auto", // Adjust as needed for your design
+
                 backgroundSize: "cover",
                 borderTop: "2px solid black"
             }}>
@@ -87,4 +90,3 @@ const Brands = () => {
     );
 };
 
-export default Brands;
