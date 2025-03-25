@@ -1,0 +1,116 @@
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Full-page Background */
+#forgot-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background: url("/bg.svg") no-repeat center center/cover; /* Apply only to forgot page */
+}
+
+/* Forgot Password Container */
+.forgot-container {
+    background: rgba(0, 0, 0, 0.75); /* Subtle transparency for readability */
+    color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    backdrop-filter: blur(10px); /* Stronger glassmorphism effect */
+    margin-top: 200px;
+    margin-bottom: 100px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Heading */
+.forgot-container h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s, transform 0.2s ease-in-out;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus {
+    border-color: #157ae1;
+    transform: scale(1.02);
+}
+
+/* Button */
+button {
+    background: #157ae1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #0e5bb5;
+    transform: scale(1.05);
+}
+
+/* Success Message */
+.success-message {
+    font-size: 18px;
+    font-weight: 500;
+    color: #4caf50;
+    padding: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .forgot-container {
+        width: 95%;
+        padding: 30px;
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+}
