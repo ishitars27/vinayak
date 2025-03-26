@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/forgot.css";
+import { div } from "three/src/nodes/TSL.js";
 
 const Forgot = () => {
     const [email, setEmail] = useState("");
@@ -11,6 +12,7 @@ const Forgot = () => {
     };
 
     return (
+        <div id="forgot-body">
         <div className="forgot-container">
             {submitted ? (
                 <h3 className="success-message">
@@ -32,6 +34,7 @@ const Forgot = () => {
                     </form>
                 </>
             )}
+        </div>
         </div>
     );
 };
