@@ -7,6 +7,7 @@ import "../styles/products.css";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useState([]); // ✅ State for cart items
 
   useEffect(() => {
     const productsRef = ref(database, "/productdetails/-OKa-_SlH8WU3RJZ4TSX");
@@ -29,13 +30,25 @@ const Products = () => {
         console.error("Error fetching from Firebase:", error);
         setLoading(false);
       });
+
+    // ✅ Load cart from local storage
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(storedCart);
   }, []);
+
+  // ✅ Function to add product to cart
+  const handleAddToCart = (product) => {
+    const updatedCart = [...cart, product];
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart)); // ✅ Save to local storage
+    alert(`${product.name} added to cart!`);
+  };
 
   return (
     <div className="products-container">
       <h2 id="our-products">Our Products</h2>
       {loading ? (
-        <p>Loading products... <i class="fa-solid fa-spinner"></i></p>
+        <p>Loading products... <i className="fa-solid fa-spinner"></i></p>
       ) : (
         <div className="product-grid">
           {products.map((product) => (
@@ -47,6 +60,10 @@ const Products = () => {
                 <p id="card-para">{product.description}</p>
                 <p id="cardprice">Price: ₹{product.price}</p>
               </Link>
+              {/* ✅ Add to Cart Button */}
+              <button onClick={() => handleAddToCart(product)} className="add-to-cart-btn">
+                Add to Cart 🛒
+              </button>
             </div>
           ))}
         </div>

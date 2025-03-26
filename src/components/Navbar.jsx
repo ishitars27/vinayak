@@ -29,7 +29,7 @@ const Navbar = () => {
         {/* Dropdown Menu for Products */}
         <div className="dropdown">
           <Link to="/products" className="button no-border">
-            Products <i className="arrow down"></i>
+            Products <i class="fa-solid fa-caret-down"></i>
           </Link>
           <div className="dropdown-menu">
             <Link to="/products">Helmets</Link>
